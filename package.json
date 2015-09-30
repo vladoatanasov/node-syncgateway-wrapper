@@ -1,0 +1,11 @@
+{
+    "name": "node-sg-wrapper",
+    "version": "0.0.1",
+    "description": "Simple wrapper for sync gateway REST API",
+    "main": "index.js",
+    "scripts": {
+        "test": "node test.js"
+    },
+    "author": "Vladimir Atanasov <vlado.atanasov@gmail.com>",
+    "license": "ISC"
+}
