@@ -10,6 +10,9 @@ wrapper.getDb(function (response) {
     console.log(response);
 });
 
-wrapper.getAllDocs(function (response) {
-    console.log(response);
+var options = {
+    channels: true
+}
+wrapper.getAllDocs(options, function (response) {
+    console.log(response.rows);
 });
