@@ -3,16 +3,30 @@ var SyncGateway = require('./index.js'),
         host: "http://localhost:4985",
         bucket: "default"
     }),
-    assert = require('assert')
+    assert = require('assert');
 
-wrapper.getDb(function (response) {
-    assert.equal(response.db_name, 'default', 'assert db name failed');
-    console.log(response);
-});
+//wrapper.getDb(function (response) {
+//    assert.equal(response.db_name, 'default', 'assert db name failed');
+//    console.log(response);
+//});
+for (var i = 0; i < 10; i++) {
+    var docId = "test" + i;
+    var document = {
+        testDoc: i
+    }
 
-var options = {
-    channels: true
+    wrapper.upsert(docId, document, function (response) {
+        console.log(response);
+    });
 }
-wrapper.getAllDocs(options, function (response) {
-    console.log(response.rows);
-});
+//
+//var options = {
+//    access: true,
+//    channels: true,
+//    include_docs: true,
+//    revs: true,
+//    update_seq: true
+//}
+//wrapper.getAllDocs(function (response) {
+//    console.log(response.rows);
+//}, options);
